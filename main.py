@@ -1,15 +1,3 @@
-"""
-Прототип системы детекции уборки столиков по видео
-Запуск: python main.py --video video1.mp4
-
-Логика:
-- Используется YOLOv8n для детекции людей (класс 0)
-- Пользователь вручную выбирает ROI (зону столика) через cv2.selectROI
-- Три состояния: EMPTY (пусто), OCCUPIED (занято), APPROACHING (подход)
-- Аналитика сохраняется в Pandas DataFrame
-- На выходе: output.mp4 с визуализацией + report.txt
-"""
-
 import argparse
 import time
 import cv2
@@ -18,7 +6,6 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
 
-# Попытка импорта YOLO, fallback на детекцию движения
 try:
     from ultralytics import YOLO
     YOLO_AVAILABLE = True
